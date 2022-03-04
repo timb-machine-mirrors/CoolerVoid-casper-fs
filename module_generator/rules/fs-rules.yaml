@@ -1,0 +1,14 @@
+binary_name: casperfs
+module_name: Casper-fs custom module -
+unhide_module_key: AbraKadabra
+hide_module_key: Shazam
+fake_device_name: usb15
+unhide-hide-file-key: Alakazam
+unprotect-protect-file-key: Sesame 
+fs-rules: 
+- hidden: 
+   file: secret.txt
+   file: my_vault.db
+- protect:
+   file: backup_httpd.log
+   file: secret_img.iso
