@@ -49,6 +49,15 @@ fs-rules:
    2: secret_img.iso
    3: secret_file.img
 ```
+The array hidden and array protect, you can insert a lot another files elements on context for example:
+```
+- protect:
+   1: backup_httpd.log
+   2: secret_img.iso
+   3: secret_file.img
+   4: secret_file2.img
+   5: secret_file3.img
+```
 If you want to study the static code to generate, look at the content at directory "templates".
 
 The second step, generate your module
@@ -81,6 +90,9 @@ To test module:
 # insmod casperfs.ko
 ```
 
+
+The fourth step run your custom module.
+--
 
 * The password to turn casper-fs visible is "AbraKadabra".
 * The password to turn the casper-fs invisible is "Shazam".
