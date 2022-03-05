@@ -82,13 +82,10 @@ To test module:
 ```
 
 
-The password to turn casper-fs visible is "AbraKadabra".
-
-The password to turn the casper-fs invisible is "Shazam".
-
-The password to turn the secret files in hidden is "Alakazam" the same to turn to unhidden.
-
-The password to protect files or unprotect is "Sesame".
+* The password to turn casper-fs visible is "AbraKadabra".
+* The password to turn the casper-fs invisible is "Shazam".
+* The password to turn the secret files in hidden is "Alakazam" the same to turn to unhidden.
+* The password to protect files or unprotect is "Sesame".
 
 You need to send the password for your fake device, "usb15" for example to test hidden and unhidden resources on file system:
 ```
