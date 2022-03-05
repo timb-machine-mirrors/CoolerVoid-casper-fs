@@ -26,7 +26,7 @@ git clone https://github.com/CoolerVoid/casper-fs
 
 Enter the folder
 ```
-cd HiddenWall/module_generator
+cd casper-fs/module_generator
 ```
 
 Edit your file rules in directory module_generator/rules/fs-rules.yaml, the python scripts, use that file to generate a new casper-fs custom module.
