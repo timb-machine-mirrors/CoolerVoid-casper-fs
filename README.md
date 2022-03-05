@@ -110,7 +110,9 @@ $ echo "Alakazam" > /dev/usb15
 $ ls
 -- no results--
 ```
-You need to turn visible at the "lsmod" command:
+
+* Note
+You need to turn visible at the "lsmod" command to remove module:
 
 ```
 # echo "AbraKadabra" > /dev/usb15
