@@ -83,7 +83,7 @@ To test module:
 
 
 The password to turn casper-fs visible is "AbraKadabra".
-The password to turn the Firewall invisible is "Shazam".
+The password to turn the casper-fs invisible is "Shazam".
 
 You need to send the password for your fake device, "usb15".
 
