@@ -95,14 +95,17 @@ $ ls
 $ echo "Alakazam" > /dev/usb15
 $ ls
 secret.txt
+$ echo "Alakazam" > /dev/usb15
+$ ls
+-- no results--
 ```
 
 To exit the module, you need to turn visible at the "lsmod" command ...
 
 ```
 # echo "AbraKadabra" > /dev/usb15
-# lsmod | grep SandWall
-# rmmod SandWall
+# lsmod | grep casper
+# rmmod casperfs
 ```
 
 Random notes
