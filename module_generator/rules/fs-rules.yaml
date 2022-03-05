@@ -7,8 +7,9 @@ unhide-hide-file-key: Alakazam
 unprotect-protect-file-key: Sesame 
 fs-rules: 
 - hidden: 
-   file: secret.txt
-   file: my_vault.db
+   1: secret.txt
+   2: my_vault.db
 - protect:
-   file: backup_httpd.log
-   file: secret_img.iso
+   1: backup_httpd.log
+   2: secret_img.iso
+   3: secret_file.img
