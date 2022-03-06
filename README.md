@@ -16,17 +16,18 @@ The first step, understand before the run.
 
 Verify if the kernel version is 3.x, 4.x, or 5.x:
 ```
-uname -r
+$ uname -r
 ```
 
 Clone the repository
 ```
-git clone https://github.com/CoolerVoid/casper-fs
+$ git clone https://github.com/CoolerVoid/casper-fs
 ```
 
-Enter the folder
+Enter the folder and install python3 modules:
 ```
-cd casper-fs/module_generator
+$ cd casper-fs/module_generator
+$ sudo python3 -m pip install -r requirements.txt
 ```
 
 Edit your file rules in directory module_generator/rules/fs-rules.yaml, the python scripts, use that file to generate a new casper-fs custom module.
