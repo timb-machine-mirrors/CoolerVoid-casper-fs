@@ -128,7 +128,7 @@ Tested on ubuntu 16 and fedora 29 at kernels "3.x","4.x" and "5.x".
 
 
 ## Point of attention
-The purpose of this tool is to use in hardening system context, take attention if you have a proper authorization before to use that. I do not have responsibility for your actions. You can use a hammer to construct a house or destroy it, choose the law path, don't be a bad guy, remember.
+This tool aims to use in the hardening system context. Pay attention if you have proper authorization before using that. I do not have responsibility for your actions. You can use a hammer to construct a house or destroy it, choose the law path, don't be a bad guy, remember.
 
 
 References
