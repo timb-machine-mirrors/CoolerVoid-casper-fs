@@ -1,5 +1,5 @@
 binary_name: casperfs
-module_name: Casper-fs custom module -
+module_name: Casperfs
 unhide_module_key: AbraKadabra
 hide_module_key: Shazam
 fake_device_name: usb15
