@@ -3,6 +3,7 @@ import yaml
 import argparse
 from util import file_op
 from termcolor import colored
+from util import custom_validator
 
 def banner():
     print("\t____ ____ ____ ___  ____ ____    ____ ____") 
@@ -12,9 +13,9 @@ def banner():
     logo = file.read()
     print(colored(logo,'white',attrs=['blink']) )
     file.close()     
-    print(colored("\tCustom Linux Kernel Module generator to turn private files hidden. The second function is to protect confidential files to prevent reading, writing and removal.",'yellow'))
+    print(colored("\tCasper-fs is a Custom Hidden Linux Kernel Module generator. Each module works in the file system to protect and hide secret files.",'yellow'))
     print(colored("\tVersion 0.1 coded by CoolerVoid - github.com/CoolerVoid/casper-fs",'cyan'))
-    print ("\n---\nExample to use:")
+    print ("\tExample to use:")
     print ("\tpython3 Casper-fs.py --rules rules/my_secret_files.yaml\n")
 
 def arguments():
@@ -33,9 +34,13 @@ def Get_config(ConfigFile):
  d={}
  d['hide_list_fs']=""
  d['protect_list_fs']=""
- document = open(ConfigFile, 'r')
- parsed = yaml.load(document, Loader=yaml.FullLoader)
+ 
+ with open(ConfigFile, 'r') as file:
+  parsed = yaml.safe_load(file)
  print("Load external config "+ConfigFile)
+ print(colored("Scanning with validator","green") )
+ custom_validator.is_valid_casper_yaml(parsed)
+ print(colored("All right in rules file, next step!","green") )
 
  for key,value in parsed.items():
   if key == "binary_name":
@@ -66,7 +71,15 @@ def Get_config(ConfigFile):
   
  d['hide_list_fs']=d['hide_list_fs'][:-1]
  d['protect_list_fs']=d['protect_list_fs'][:-1]
+ if len(d['hide_list_fs'])<3 and len(d['protect_list_fs'])<3:
+     print(colored("Error!\nYAML file needs a field for a \"hidden\" list or list called \"protect\"!","red"))
+     exit(0)
+ if len(d['hide_list_fs']) <3:
+     d['hide_list_fs']="\"0\""
+ if len(d['protect_list_fs']) <3:
+     d['protect_list_fs']="\"0\""
  return d
+
 
 def start_generator(rules_fs):
  v = rules_fs
@@ -75,7 +88,7 @@ def start_generator(rules_fs):
  template_content_hooked=file_op.File_to_string("template/hooked.c")
  template_content_hooked_h=file_op.File_to_string("template/hooked.h")
  template_content_makefile=file_op.File_to_string("template/Makefile")
- print (colored("\n Generate Kernel module \n","cyan"))
+ print (colored("Generate Kernel module!","cyan"))
  # main.c
  main_file=template_content_main
  main_file=main_file.replace("CASPER_MODULE_NAME",v['module_name'])
@@ -94,7 +107,7 @@ def start_generator(rules_fs):
  # Makefile
  makefile_file=template_content_makefile
  makefile_file=makefile_file.replace("CASPER_BINARY_NAME",v['binary_name'])
-# save output
+ # save output
  output_makefile="output/Makefile"
  output_hooked="output/hooked.c"
  output_hooked_h="output/hooked.h"

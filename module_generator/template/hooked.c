@@ -78,6 +78,11 @@ _Bool check_fs_blocklist(char *input)
 PROTECT_LIST
 	};
 
+        if(strcmp(list[0],"0") == 0)
+	{
+		return 0;
+	}
+
 	while(i!=total_list)
 	{
 		if(strstr(input, list[i]) != NULL)
@@ -94,8 +99,15 @@ _Bool check_fs_hidelist(char *input)
 	const char *list[] = {
 HIDE_LIST
 	};
+
 	if(fs_hidden==0)
 	    return 0;
+
+
+        if(strcmp(list[0],"0") == 0)
+	{
+		return 0;
+	}
 
 	while(i!=total_list)
 	{
