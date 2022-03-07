@@ -94,7 +94,7 @@ To test module:
 The fourth step runs your custom module.
 --
 
-* The password to turn casper-fs module visible for lsmod command to lsit kernel modules, use the key "Shazam".
+* The password to turn casper-fs module visible for lsmod is the key "Shazam".
 * The password to turn the casper-fs invisible is "AbraKadabra".
 * The password to turn the secret files in hidden is "Alakazam", the same to turn to unhidden.
 * The password to protect files or unprotect is "Sesame".
