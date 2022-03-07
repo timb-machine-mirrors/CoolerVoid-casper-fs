@@ -27,14 +27,13 @@
 #include <linux/fs.h>
 
 
-MODULE_DESCRIPTION("Casper-fs custom module - Version 0.2 - Module to turn a private file in hidden. The second function is to protect a confidential file to prevent reading, writing and removal.");
+MODULE_DESCRIPTION("Casperfs Version 0.2 - Module to turn a private file in hidden. The second function is to protect a confidential file to prevent reading, writing and removal.");
 MODULE_AUTHOR("CoolerVoid <coolerlair@gmail.com>");
 MODULE_LICENSE("Dual BSD/GPL");
 
 static unsigned int major; 
 static struct class *fake_class;
 static struct cdev fake_cdev;
-static char message[128];
 
 static struct list_head *module_previous;
 static short module_hidden = 0;

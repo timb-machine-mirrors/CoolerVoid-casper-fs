@@ -34,7 +34,6 @@ MODULE_LICENSE("Dual BSD/GPL");
 static unsigned int major; 
 static struct class *fake_class;
 static struct cdev fake_cdev;
-static char message[128];
 
 static struct list_head *module_previous;
 static short module_hidden = 0;

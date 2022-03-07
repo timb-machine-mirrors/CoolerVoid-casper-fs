@@ -7,7 +7,7 @@
 #include <linux/cdev.h>
 #include "hooked.h"
 
-MODULE_DESCRIPTION("Casper-fs custom module - - Custom LKM to protect secret resources on file system.");
+MODULE_DESCRIPTION("Casperfs - Custom LKM to protect secret resources on file system.");
 MODULE_AUTHOR("CoolerVoid <coolerlair@gmail.com>");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.2");
@@ -38,7 +38,7 @@ static int fh_init(void)
     major = MAJOR(devt);
 
     /* Create device class, visible in /sys/class */
-    fake_class = class_create(THIS_MODULE, "usb15");
+    fake_class = class_create(THIS_MODULE, "custom_char_class");
 
     	if (IS_ERR(fake_class)) {
         	unregister_chrdev_region(MKDEV(major, 0), 1);

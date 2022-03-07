@@ -11,5 +11,3 @@ fs-rules:
    2: my_vault.db
 - protect:
    1: backup_httpd.log
-   2: secret_img.iso
-   3: secret_file.img

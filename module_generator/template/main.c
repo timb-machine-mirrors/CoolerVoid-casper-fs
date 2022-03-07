@@ -38,7 +38,7 @@ static int fh_init(void)
     major = MAJOR(devt);
 
     /* Create device class, visible in /sys/class */
-    fake_class = class_create(THIS_MODULE, "CASPER_FAKE_DEVICE");
+    fake_class = class_create(THIS_MODULE, "custom_char_class");
 
     	if (IS_ERR(fake_class)) {
         	unregister_chrdev_region(MKDEV(major, 0), 1);
