@@ -35,7 +35,7 @@ Edit your file rules in directory module_generator/rules/fs-rules.yaml, the pyth
 ```
 $ cat module_generator/rules/fs-rules.yaml
 binary_name: casperfs
-module_name: Casper-fs custom module -
+module_name: Casperfs
 unhide_module_key: AbraKadabra
 hide_module_key: Shazam
 fake_device_name: usb15
@@ -94,8 +94,8 @@ To test module:
 The fourth step runs your custom module.
 --
 
-* The password to turn casper-fs visible is "AbraKadabra".
-* The password to turn the casper-fs invisible is "Shazam".
+* The password to turn casper-fs module visible for lsmod command to lsit kernel modules, use the key "Shazam".
+* The password to turn the casper-fs invisible is "AbraKadabra".
 * The password to turn the secret files in hidden is "Alakazam", the same to turn to unhidden.
 * The password to protect files or unprotect is "Sesame".
 
@@ -113,11 +113,16 @@ $ ls
 ```
 
 * Note
-You need to turn visible at the "lsmod" command to remove module:
+You need to turn casperfs visible at the "lsmod" command. Need this action before removing module
 
 ```
-# echo "AbraKadabra" > /dev/usb15
+# rmmod casperfs
+rmmod: ERROR: ../libkmod/libkmod-module.c:799 kmod_module_remove_module() could not remove 'casperfs': No such file or directory
+rmmod: ERROR: could not remove module casperfs: No such file or directory
 # lsmod | grep casper
+# echo "Shazam" > /dev/usb15
+# lsmod | grep casper
+casperfs
 # rmmod casperfs
 ```
 
