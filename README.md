@@ -119,7 +119,7 @@ test.txt  log.txt backup_httpd.log
 # rm backup_httpd.log
 # ls 
 test.txt  log.txt backup_httpd.log
-# echo "Sesame" > /dev/usb15
+# echo "Sesame" > /dev/usb15            // to remove protection
 # rm backup_httpd.log
 # ls
 test.txt  log.txt
