@@ -47,8 +47,6 @@ fs-rules:
    2: my_vault.db
 - protect:
    1: backup_httpd.log
-   2: secret_img.iso
-   3: secret_file.img
 ```
 The array is hidden and array protected. You can insert a lot of the elements of another file on context, for example:
 ```
@@ -110,6 +108,19 @@ secret.txt
 $ echo "Alakazam" > /dev/usb15
 $ ls
 -- no results--
+```
+So this is an example of trying to remove a protected file by Casper-fs:
+```
+# ls
+test.txt  log.txt backup_httpd.log
+# rm backup_httpd.log
+# ls 
+test.txt  log.txt backup_httpd.log
+# echo "Sesame" > /dev/usb15
+# rm backup_httpd.log
+# ls
+test.txt  log.txt
+# echo "Sesame" > /dev/usb15    // to active protection again
 ```
 
 * Note
