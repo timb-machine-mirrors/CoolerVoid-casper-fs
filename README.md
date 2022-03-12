@@ -10,6 +10,9 @@ My beginning purpose at this project is to protect my server, which is to protec
 When I talk to friends, I say peoples that don't know how to write low-level code. Using the Casper-fs, you can 
 generate your custom kernel module to protect your secret files. The low-level programmer can write new templates for modules etc.
 
+## Video demo:
+https://www.youtube.com/watch?v=qxLEkYFicTg
+
 
 The first step, understand before the run.
 --
