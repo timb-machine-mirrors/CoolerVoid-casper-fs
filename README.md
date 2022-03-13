@@ -1,10 +1,14 @@
 # casper-fs 👻
 <img align="center" src="https://github.com/CoolerVoid/casper-fs/blob/main/doc/Screenshot_9.png?raw=true">
-Casper-fs is a Custom Linux Kernel Module generator for file system protection. 
+Casper-fs is a Custom Linux Kernel Module generator for file system protection. Casper-fs is a Custom Linux Kernel Module generator for file system protection.
+
+
 
 The first point, the user sends input to the Casper-FS the YAML file with rules to generate a custom LKM(Linux kernel module), each generated module works in the file system to protect and hide secret files (Not even the root has permission to see the file, only can see with a proper sending key to the custom device). This program has two principal functions: turning private files hidden. The second function is to protect confidential files to prevent reading, writing and removal.
+ 
+  
 
-The motivation: An attacker can read every file in your machine in a bad situation. But if you have a Casper-fs custom module, the attacker will not find the hidden kernel module that has functions to protect your private data files such as logs and password vaults.
+The motivation: An attacker can read every file in your machine in a bad situation(if he got root). But if you have a Casper-fs custom module, the attacker will not find the hidden kernel module that has functions to protect your private data files such as logs and password vaults.
 
 My beginning purpose at this project is to protect my server, which is to protect my friends' machines.
 When I talk to friends, I say peoples that don't know how to write low-level code. Using the Casper-fs, you can 
