@@ -1,6 +1,6 @@
 # casper-fs 👻
 <img align="center" src="https://github.com/CoolerVoid/casper-fs/blob/main/doc/Screenshot_9.png?raw=true">
-Casper-fs is a custom Linux Kernel Module generator to work with resources to protect a custom list of files.
+Casper-fs is a custom Linux Kernel Module generator to work with resources to protect or hide a custom list of files.
 
 ## Overview
 
