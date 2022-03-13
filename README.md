@@ -1,6 +1,6 @@
 # casper-fs 👻
 <img align="center" src="https://github.com/CoolerVoid/casper-fs/blob/main/doc/Screenshot_9.png?raw=true">
-Casper-fs is a Custom Hidden Linux Kernel Module generator. Each module works in the file system to protect and hide secret files.
+Casper-fs is a Custom Linux Kernel Module generator. Each module works in the file system to protect and hide secret files(Not even the root has permission to see the file, only with proper sending key to custom device).
 This program has two principal functions: turning private files hidden. The second function is to protect confidential files to prevent reading, writing and removal.
 
 The motivation: An attacker can read every file in your machine in a bad situation. But if you have a Casper-fs custom module, 
