@@ -14,7 +14,7 @@ def banner():
     print(colored(logo,'white',attrs=['blink']) )
     file.close()     
     print(colored("\tCasper-fs is a Custom Hidden Linux Kernel Module generator. Each module works in the file system to protect and hide secret files.",'yellow'))
-    print(colored("\tVersion 0.1 coded by CoolerVoid - github.com/CoolerVoid/casper-fs",'cyan'))
+    print(colored("\tVersion 0.2 coded by CoolerVoid - github.com/CoolerVoid/casper-fs",'cyan'))
     print ("\tExample to use:")
     print ("\tpython3 Casper-fs.py --rules rules/my_secret_files.yaml\n")
 
