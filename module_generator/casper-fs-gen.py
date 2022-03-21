@@ -8,7 +8,7 @@ def main():
 # Get argvs of user's input
     rules_filename = parser.arguments()
 
-# load rules of firewall at directory rules
+# load rules of file system at directory rules
     try:
         rules_casper=parser.Get_config(rules_filename)
     except Exception as e:
