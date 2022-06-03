@@ -1,0 +1,14 @@
+# use this script in systemd
+# COntribution by Paul Wiston - contact: paul.w3st0n@googlemail.com
+[Unit]
+Description=Starts_casper
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart="/usr/local/bin/casp.sh"
+Type=simple
+
+[Install]
+WantedBy=default.target
