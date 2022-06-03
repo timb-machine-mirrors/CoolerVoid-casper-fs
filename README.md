@@ -144,17 +144,21 @@ casperfs
 # rmmod casperfs
 ```
 
-Random notes
+# Random notes
 --
 
 Tested on ubuntu 16 and fedora 29 at kernels "3.x","4.x" and "5.x".
+
+# Persistence and hide command of history
+Follow this tip for more information:
+https://github.com/CoolerVoid/casper-fs/blob/main/module_generator/scripts/README.md
 
 
 ## Point of attention
 This tool aims to use in the hardening system context. Pay attention if you have proper authorization before using that. I do not have responsibility for your actions. You can use a hammer to construct a house or destroy it, choose the law path, don't be a bad guy, remember.
 
 
-References
+# References
 --
 
 *Wikipedia Netfilter* 
