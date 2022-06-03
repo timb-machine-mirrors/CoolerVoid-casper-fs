@@ -2,6 +2,8 @@
 # Make casper-fs after reboot.
 #
 # 5th May 2022 script contribution by Paul Weston - paul.w3st0n@googlemail.com
+# save this file in /usr/local/bin/
+# change points of directory "paul" to you proper user path
 
 LOGFILE="/home/paul/casper.log"
 
