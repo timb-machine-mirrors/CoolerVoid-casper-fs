@@ -14,6 +14,17 @@ My beginning purpose at this project is to protect my server, which is to protec
 When I talk to friends, I say peoples that don't know how to write low-level code. Using the Casper-fs, you can 
 generate your custom kernel module to protect your secret files. The low-level programmer can write new templates for modules etc.
 
+# Tool Features
+* Tool to interpret YAML file and generate a C language file "Linux kernel module".
+* YAML context is a white screen to create your custom module in kernel land. Yes is not hard when you use HiddenWall.
+* The resource to generate the hidden kernel module, yes is invisible not even the root user can see it.
+* The resource to turn the Linux kernel module visible, passing a key to enable the context.
+* The resource to turn any file into a file system invisible(not even root can see it).
+* The resource to turn to visible any invisible file.
+* The resource to protect any file in the file system to prevent writing and removal.
+* The resource to unprotect any file writing and remove proper permission.
+* Persistence recipes with scripts, to always up Casper-fs when you boot the system.
+
 ## Video demo:
 https://www.youtube.com/watch?v=qxLEkYFicTg
 
