@@ -16,7 +16,7 @@ generate your custom kernel module to protect your secret files. The low-level p
 
 # Tool Features
 * Tool to interpret YAML file and generate a C language file "Linux kernel module".
-* YAML context is a white screen to create your custom module in kernel land. Yes is not hard when you use HiddenWall.
+* YAML context is a white screen to create your custom module in kernel land. Yes is not hard when you use Casper-FS.
 * The resource to generate the hidden kernel module, yes is invisible not even the root user can see it.
 * The resource to turn the Linux kernel module visible, passing a key to enable the context.
 * The resource to turn any file into a file system invisible(not even root can see it).
